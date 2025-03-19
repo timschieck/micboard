@@ -22,7 +22,7 @@ def main():
     rxcom_t.start()
     web_t.start()
     discover_t.start()
-    rxparse_t.start()
+    rxparse_t.start() 
 
 
 if __name__ == '__main__':

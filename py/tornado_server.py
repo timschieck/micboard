@@ -160,6 +160,9 @@ class NoCacheHandler(web.StaticFileHandler):
         # Disable cache
         self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
 
+class HelpHandler(web.RequestHandler):
+    def get(self):
+        self.write("hello")
 
 def twisted():
     app = web.Application([
@@ -170,6 +173,7 @@ def twisted():
         (r'/api/group', GroupUpdateHandler),
         (r'/api/slot', SlotHandler),
         (r'/api/config', ConfigHandler),
+        (r'/help', HelpHandler),
         # (r'/restart/', MicboardReloadConfigHandler),
         (r'/static/(.*)', web.StaticFileHandler, {'path': config.app_dir('static')}),
         (r'/bg/(.*)', NoCacheHandler, {'path': config.get_gif_dir()})

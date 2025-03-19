@@ -1,9 +1,7 @@
-version: '2'
-
 services:
   # -------- Micboard -----------
   micboard:
-    image: micboard
+    image: micboard:0.8.6
     container_name: micboard
     ports:
       - '8058:8058'
